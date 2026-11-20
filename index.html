@@ -1,91 +1,591 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tamil Nadu Matrimony | Trusted Alliance Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #8b1538;
+      --primary-dark: #630d26;
+      --gold: #d4af37;
+      --gold-light: #f6e7b4;
+      --bg: #fffaf5;
+      --card-bg: #ffffff;
+      --text: #2b1d21;
+      --muted: #6e5a60;
+      --border: #eddce1;
+    }
 
-    <title>Tamil Nadu Matrimony</title>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #fffaf5;
-            text-align: center;
-        }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-        header {
-            background: #8b1538;
-            color: white;
-            padding: 25px;
-        }
+    /* Navigation */
+    header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #fff;
+      padding: 1rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 16px rgba(139, 21, 56, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
 
-        h1 {
-            margin: 0;
-        }
+    .logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
-        .hero {
-            padding: 70px 15px;
-        }
+    .logo span {
+      color: var(--gold);
+    }
 
-        .hero h2 {
-            color: #8b1538;
-            font-size: 30px;
-        }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
 
-        .hero p {
-            color: #555;
-            font-size: 18px;
-        }
+    nav a:hover {
+      color: var(--gold);
+    }
 
-        button {
-            background: #8b1538;
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 8px;
-            font-size: 16px;
-        }
+    /* Hero Section */
+    .hero {
+      background: radial-gradient(circle at top right, #a81c45, var(--primary-dark));
+      color: #fff;
+      text-align: center;
+      padding: 4.5rem 5% 5.5rem;
+      border-bottom: 4px solid var(--gold);
+    }
 
-        footer {
-            padding: 20px;
-            color: #777;
-        }
-    </style>
+    .hero-badge {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.18);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      color: #f8e6eb;
+      font-size: 1.05rem;
+    }
+
+    /* Search Filter Box */
+    .search-box {
+      background: var(--card-bg);
+      max-width: 960px;
+      margin: -2.8rem auto 3rem;
+      padding: 1.5rem;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(99, 13, 38, 0.12);
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      align-items: end;
+    }
+
+    .filter-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+    }
+
+    .filter-group select,
+    .filter-group input {
+      width: 100%;
+      padding: 0.7rem 0.85rem;
+      border: 1px solid #d9c3ca;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--text);
+      background: #fff;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.78rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #2b1d21;
+    }
+
+    .btn-gold:hover {
+      background: #c49f2b;
+    }
+
+    /* Sections */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2rem 5%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.2rem;
+    }
+
+    .section-title h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--primary);
+      font-size: 1.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    /* Profile Cards Grid */
+    .profiles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .profile-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .profile-header {
+      background: linear-gradient(135deg, #fceef2, #f7dce4);
+      padding: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .profile-id {
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.25rem 0.65rem;
+      border-radius: 50px;
+    }
+
+    .verified-tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #166534;
+      background: #dcfce7;
+      padding: 0.2rem 0.6rem;
+      border-radius: 50px;
+    }
+
+    .profile-body {
+      padding: 1.3rem;
+    }
+
+    .profile-body h3 {
+      font-size: 1.15rem;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .profile-meta {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .profile-details {
+      list-style: none;
+      font-size: 0.88rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .profile-details li {
+      padding: 0.3rem 0;
+      border-bottom: 1px dashed #f0e2e6;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .profile-details li span:first-child {
+      color: var(--muted);
+    }
+
+    .profile-details li span:last-child {
+      font-weight: 600;
+    }
+
+    /* Registration Section */
+    .register-section {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.2rem;
+      margin: 3rem auto;
+      max-width: 780px;
+      box-shadow: 0 10px 28px rgba(139, 21, 56, 0.07);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: #f3dce2;
+      text-align: center;
+      padding: 2.5rem 5%;
+      margin-top: 3rem;
+      border-top: 3px solid var(--gold);
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      margin-bottom: 0.4rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+      nav a {
+        margin: 0 0.6rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>Tamil Nadu Matrimony</h1>
-        <p>Find Your Perfect Life Partner</p>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="logo">💍 Tamil Nadu <span>Matrimony</span></div>
+    <nav>
+      <a href="#profiles">Browse Profiles</a>
+      <a href="#register">Free Registration</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <section class="hero">
-        <h2>Welcome to Tamil Nadu Matrimony</h2>
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-badge">100% Verified Tamil Profiles Across All 38 Districts</div>
+    <h1>Find Your Ideal Life Partner in Tamil Nadu</h1>
+    <p>Trusted matchmaking for families across Chennai, Coimbatore, Madurai, Trichy, Thoothukudi, Tirunelveli, Salem, and worldwide Tamil diaspora.</p>
+    <a href="#register" class="btn btn-gold">Register Free Profile</a>
+  </section>
 
-        <p>Start your journey towards a beautiful relationship.</p>
+  <!-- Filter Bar -->
+  <div class="container" style="padding-top: 0;">
+    <div class="search-box">
+      <div class="filter-group">
+        <label for="genderFilter">Looking For</label>
+        <select id="genderFilter">
+          <option value="All">All Profiles</option>
+          <option value="Bride">Bride</option>
+          <option value="Groom">Groom</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="districtFilter">District</label>
+        <select id="districtFilter">
+          <option value="All">All Districts</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Coimbatore">Coimbatore</option>
+          <option value="Madurai">Madurai</option>
+          <option value="Thoothukudi">Thoothukudi</option>
+          <option value="Tirunelveli">Tirunelveli</option>
+          <option value="Trichy">Trichy</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="religionFilter">Religion</label>
+        <select id="religionFilter">
+          <option value="All">All Religions</option>
+          <option value="Hindu">Hindu</option>
+          <option value="Christian">Christian</option>
+          <option value="Muslim">Muslim</option>
+        </select>
+      </div>
+      <button class="btn" onclick="filterProfiles()">Search Matches</button>
+    </div>
+  </div>
 
-        <button onclick="showMessage()">
-            Get Started
-        </button>
+  <!-- Featured Profiles -->
+  <section id="profiles" class="container">
+    <div class="section-title">
+      <h2>Featured Verified Profiles</h2>
+      <p>Filter by district, gender, or religion to find compatible matches</p>
+    </div>
 
-        <p id="message"></p>
-    </section>
+    <div class="profiles-grid" id="profilesGrid"></div>
+  </section>
 
-    <footer>
-        © 2026 Tamil Nadu Matrimony
-    </footer>
+  <!-- Free Registration Form -->
+  <section id="register" class="container">
+    <div class="register-section">
+      <div class="section-title" style="margin-bottom: 1.5rem;">
+        <h2>Free Profile Registration</h2>
+        <p>Submit your basic details to receive matching horoscopes & biodata</p>
+      </div>
+      <form id="regForm" onsubmit="submitRegistration(event)">
+        <div class="form-grid">
+          <div class="filter-group">
+            <label>Candidate Name</label>
+            <input type="text" id="regName" placeholder="Enter full name" required />
+          </div>
+          <div class="filter-group">
+            <label>Profile For</label>
+            <select id="regFor" required>
+              <option value="Bride">Bride</option>
+              <option value="Groom">Groom</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Age</label>
+            <input type="number" id="regAge" min="18" max="60" placeholder="e.g. 26" required />
+          </div>
+          <div class="filter-group">
+            <label>District</label>
+            <input type="text" id="regDistrict" placeholder="e.g. Thoothukudi / Chennai" required />
+          </div>
+          <div class="filter-group">
+            <label>Education / Profession</label>
+            <input type="text" id="regJob" placeholder="e.g. B.E / Software Engineer" required />
+          </div>
+          <div class="filter-group">
+            <label>WhatsApp / Mobile Number</label>
+            <input type="tel" id="regPhone" placeholder="10-digit mobile number" required />
+          </div>
+        </div>
+        <button type="submit" class="btn" style="width: 100%; font-size: 1rem;">Submit Profile & Connect on WhatsApp</button>
+      </form>
+    </div>
+  </section>
 
-    <script>
-        function showMessage() {
-            document.getElementById("message").innerText =
-                "Welcome! Registration is coming soon.";
-        }
-    </script>
+  <!-- Footer -->
+  <footer id="contact">
+    <p><strong>Tamil Nadu Matrimony Services</strong></p>
+    <p>Helping Tamil families connect with trust, privacy, and tradition.</p>
+    <p style="margin-top: 0.8rem; color: var(--gold);">© 2026 Tamil Nadu Matrimony. All Rights Reserved.</p>
+  </footer>
 
+  <script>
+    const profiles = [
+      {
+        id: "TNM1042",
+        name: "Priya Darshini",
+        gender: "Bride",
+        age: 25,
+        height: "5'4\"",
+        religion: "Hindu",
+        district: "Chennai",
+        education: "M.Sc Computer Science",
+        profession: "UI/UX Designer (TCS)"
+      },
+      {
+        id: "TNM1089",
+        name: "Karthikeyan S.",
+        gender: "Groom",
+        age: 28,
+        height: "5'10\"",
+        religion: "Hindu",
+        district: "Thoothukudi",
+        education: "B.E Mechanical",
+        profession: "Operations Manager"
+      },
+      {
+        id: "TNM1124",
+        name: "Jenifer Mary",
+        gender: "Bride",
+        age: 26,
+        height: "5'5\"",
+        religion: "Christian",
+        district: "Tirunelveli",
+        education: "B.Pharm",
+        profession: "Clinical Pharmacist"
+      },
+      {
+        id: "TNM1156",
+        name: "Aravind Kumar",
+        gender: "Groom",
+        age: 29,
+        height: "5'11\"",
+        religion: "Hindu",
+        district: "Coimbatore",
+        education: "MBA Finance",
+        profession: "Business Owner"
+      },
+      {
+        id: "TNM1198",
+        name: "Fathima Begum",
+        gender: "Bride",
+        age: 24,
+        height: "5'3\"",
+        religion: "Muslim",
+        district: "Madurai",
+        education: "B.Com CA",
+        profession: "Audit Executive"
+      },
+      {
+        id: "TNM1215",
+        name: "Vigneshwaran R.",
+        gender: "Groom",
+        age: 27,
+        height: "5'9\"",
+        religion: "Hindu",
+        district: "Trichy",
+        education: "B.Tech IT",
+        profession: "Software Developer"
+      }
+    ];
+
+    function renderProfiles(list) {
+      const grid = document.getElementById("profilesGrid");
+      if (list.length === 0) {
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--muted); padding: 2rem;">No profiles matched your exact filter. Try selecting "All" in one of the dropdowns.</p>`;
+        return;
+      }
+
+      grid.innerHTML = list.map(p => `
+        <div class="profile-card">
+          <div class="profile-header">
+            <span class="profile-id">${p.id}</span>
+            <span class="verified-tag">✓ ID Verified</span>
+          </div>
+          <div class="profile-body">
+            <h3>${p.name} (${p.age} Yrs)</h3>
+            <div class="profile-meta">${p.gender} • ${p.district}, Tamil Nadu</div>
+            <ul class="profile-details">
+              <li><span>Religion:</span> <span>${p.religion}</span></li>
+              <li><span>Height:</span> <span>${p.height}</span></li>
+              <li><span>Education:</span> <span>${p.education}</span></li>
+              <li><span>Profession:</span> <span>${p.profession}</span></li>
+            </ul>
+            <a href="#register" class="btn" style="width: 100%;" onclick="prefillInterest('${p.id}')">Express Interest</a>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function filterProfiles() {
+      const gender = document.getElementById("genderFilter").value;
+      const district = document.getElementById("districtFilter").value;
+      const religion = document.getElementById("religionFilter").value;
+
+      const filtered = profiles.filter(p => {
+        return (gender === "All" || p.gender === gender) &&
+               (district === "All" || p.district === district) &&
+               (religion === "All" || p.religion === religion);
+      });
+
+      renderProfiles(filtered);
+    }
+
+    function prefillInterest(profileId) {
+      document.getElementById("regJob").value = `Interested in Profile ${profileId}`;
+    }
+
+    function submitRegistration(e) {
+      e.preventDefault();
+      const name = document.getElementById("regName").value;
+      const profileFor = document.getElementById("regFor").value;
+      const age = document.getElementById("regAge").value;
+      const district = document.getElementById("regDistrict").value;
+      const job = document.getElementById("regJob").value;
+      const phone = document.getElementById("regPhone").value;
+
+      const msg = encodeURIComponent(
+        `Vanakkam! New Tamil Nadu Matrimony Registration:\n` +
+        `Name: ${name} (${profileFor})\n` +
+        `Age: ${age}\n` +
+        `District: ${district}\n` +
+        `Details: ${job}\n` +
+        `Contact: ${phone}`
+      );
+
+      // Replace 919345687406 with your business WhatsApp number if needed
+      window.open(`https://wa.me/919345687406?text=${msg}`, "_blank");
+    }
+
+    // Initial load
+    renderProfiles(profiles);
+  </script>
 </body>
 </html>
+
 
 
     
